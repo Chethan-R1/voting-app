@@ -1,0 +1,32 @@
+.header {
+background-color: #007bff;
+color: white;
+padding: 1rem;
+display: flex;
+align-items: center;
+justify-content: space-between;
+position: relative;
+}
+
+.logo-container{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    position: absolute;
+    top: 50%;
+    left: 1rem;
+    transform: translateY(-50%);
+}
+
+.logo{
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+}
+
+.heading{
+    font-size: 1.5rem;
+    text-align: center;
+    flex-grow: 1;
+    margin: 0;
+}
