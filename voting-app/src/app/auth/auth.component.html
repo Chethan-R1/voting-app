@@ -1,0 +1,16 @@
+<div class="auth-container">
+  <h2>{{ isLoginMode ? 'Login' : 'Register' }}</h2>
+
+  <form (ngSubmit)="onSubmit()">
+    <input type="text" placeholder="Username" [(ngModel)]="user.username" name="username" required />
+    <input type="password" placeholder="Password" [(ngModel)]="user.password" name="password" required />
+    <button type="submit">{{ isLoginMode ? 'Login' : 'Register' }}</button>
+  </form>
+
+  <p class="message">{{ message }}</p>
+
+  <button class="toggle-btn" (click)="toggleMode()">
+    Switch to {{ isLoginMode ? 'Register' : 'Login' }}
+  </button>
+</div>
+<router-outlet></router-outlet>

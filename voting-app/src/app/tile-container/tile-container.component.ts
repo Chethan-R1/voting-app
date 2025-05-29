@@ -12,7 +12,7 @@ export class TileContainerComponent {
   selectedStory: string = '';
   selectedItem: any = null;
 
-  roomIds = ['101', '102', '103', '104', '105', '106', '107', '108'];
+  roomIds = ['1', '2', '3', '5', '8', '13', '21', '34'];
 
 
   constructor(private service: RoomService) {}
