@@ -74,6 +74,8 @@ selectedItem: any;
       console.log('Votes cleared');
       this.votingList = []; // Clear frontend display
       this.selectedRooms = []; // Optional: clear room selection if you're using it
+      this.selectedItem = null;       // Clear selected room details
+      this.selectedStory = '';        // Clear story input
     },
     (error) => {
       console.error('Error clearing votes:', error);

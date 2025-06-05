@@ -23,7 +23,7 @@ export class RoomService {
   }
 
   submitVote(vote: Vote): Observable<any> {
-    return this.http.post(`${this.baseUrl}/votes/submit`, vote);
+    return this.http.post(`${this.baseUrl}/votes/submit`, vote, { responseType: 'text' });
   }
 
   getAllVotes(): Observable<Vote[]> {
