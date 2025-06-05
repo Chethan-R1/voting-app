@@ -1,0 +1,33 @@
+<!-- Nav bar: shows only when either view is open -->
+<div class="nav-bar" *ngIf="showHeaderAndTiles || showStory">
+  <button (click)="goHome()">Home</button>
+  <button
+    [disabled]="showHeaderAndTiles"
+    (click)="showVotingTiles()"
+  >
+    VotingTiles
+  </button>
+  <button
+    [disabled]="showStory"
+    (click)="showStoryDetails()"
+  >
+    StoryDetails
+  </button>
+</div>
+
+<!-- Main buttons screen -->
+<div class="home-controls" *ngIf="!showHeaderAndTiles && !showStory">
+  <button (click)="showVotingTiles()">VotingTiles</button>
+  <button (click)="showStoryDetails()">StoryDetails</button>
+</div>
+
+<!-- VotingTiles content -->
+<div *ngIf="showHeaderAndTiles" class="content-container">
+  <app-header></app-header>
+  <app-tile-container></app-tile-container>
+</div>
+
+<!-- StoryDetails content -->
+<div *ngIf="showStory" class="content-container">
+  <app-story></app-story>
+</div>

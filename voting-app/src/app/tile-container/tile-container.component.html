@@ -1,0 +1,53 @@
+<!-- Story input (auto-filled and read-only) -->
+<div class="story-container">
+  <label for="story-input" class="story-label">Story</label>
+  <input
+    type="text"
+    id="story-input"
+    [value]="selectedStory"
+    class="story-input"
+    readonly
+  />
+</div>
+
+<!-- Room tiles -->
+<div class="card-container">
+  <div class="card" *ngFor="let id of roomIds" (click)="onRoomIdClick(id)">
+    <h3 class="card-title">{{ id }}</h3>
+  </div>
+</div>
+
+<!-- Buttons always visible -->
+<!-- <div class="button-group">
+  <button (click)="startVoting()">Start Voting</button>
+  <button (click)="stopVoting()">Stop Voting</button>
+</div> -->
+
+<div class="button-group">
+  <button (click)="startVoting()">Start Voting</button>
+  <button (click)="stopVoting()">Stop Voting</button>
+  <button (click)="clearVotes()">Clear Votes</button> 
+</div>
+
+
+<!-- Room details (if selected) -->
+<div class="selected-item" *ngIf="selectedItem">
+  <h2>Selected Room details</h2>
+  <p><strong>Room Name:</strong> {{ selectedItem.roomName }}</p>
+  <p><strong>Room Id:</strong> {{ selectedItem.roomId }}</p>
+  <p><strong>Story Id:</strong> {{ selectedItem.storyId }}</p>
+  <p><strong>Voting Type:</strong> {{ selectedItem.votingType }}</p>
+</div>
+
+
+<!-- Voting results -->
+<div class="voting-results" *ngIf="votingList.length > 0">
+  <h3>Voting Results</h3>
+  <ul>
+    <li *ngFor="let vote of votingList">
+      <strong>User:</strong> {{ vote.userId }},
+      <strong>Room:</strong> {{ vote.roomName }} (ID: {{ vote.roomId }}),
+      <strong>Story:</strong> {{ vote.storyId }}
+    </li>
+  </ul>
+</div>

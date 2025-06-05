@@ -1,0 +1,50 @@
+<div class="story-container">
+
+  <!-- Search Box -->
+  <div class="search-box">
+    <input
+      type="text"
+      placeholder="Search by Plan ID"
+      [(ngModel)]="searchPlanId"
+    />
+    <button (click)="searchByPlanId()">Search</button>
+  </div>
+
+  <!-- Story Results -->
+  <div *ngIf="stories.length > 0" class="story-list">
+    <h2>Story Details</h2>
+    <ul>
+      <li *ngFor="let story of stories">
+        <strong>Story No.:</strong> {{ story.storyNo }}<br />
+        <strong>Description:</strong> {{ story.storyDesc }}
+      </li>
+    </ul>
+  </div>
+
+  <!-- No Story Found -->
+  <div *ngIf="stories.length === 0 && searchPlanId">
+    <p>No story found for Plan ID: {{ searchPlanId }}</p>
+  </div>
+
+  <!-- Add Story Button -->
+  <button class="add-btn" (click)="toggleForm()">
+    {{ showForm ? 'Cancel' : 'Add Story' }}
+  </button>
+
+  <!-- Add Story Form -->
+  <div *ngIf="showForm" class="story-form">
+    <form (ngSubmit)="onSubmit(storyForm)" #storyForm="ngForm">
+      <!-- <label>Plan ID:</label>
+      <input type="text" name="planId" [(ngModel)]="formData.planId" required /> -->
+
+      <label>Story Description:</label>
+      <textarea name="storyDesc" [(ngModel)]="formData.storyDesc" required></textarea>
+
+      <label>Story Number:</label>
+      <input type="text" name="storyNo" [(ngModel)]="formData.storyNo" required />
+
+      <button type="submit" [disabled]="!storyForm.form.valid">Add Story</button>
+    </form>
+  </div>
+
+</div>
